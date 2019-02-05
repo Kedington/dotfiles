@@ -1,5 +1,5 @@
 # get current branch in git repo
-# added functionality to change be green when there is clean status
+#green when there is clean status, red when there is dirty status
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	if [ ! "${BRANCH}" == "" ]
