@@ -7,9 +7,9 @@ function parse_git_branch() {
 		STAT=`parse_git_dirty`
 		if [ ! "${STAT}" == "" ]
 		then
-			echo "[31m[${BRANCH}${STAT}]"
+			echo "31m[${BRANCH}${STAT}]"
 		else
-			echo "[32m[${BRANCH}${STAT}]"
+			echo "32m[${BRANCH}${STAT}]"
 		fi
 	else
 		echo ""
@@ -51,4 +51,4 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\u\[\e[34m\]@\[\e[m\]\W\[\e\`parse_git_branch\`\[\e[m\]\\$ "
+export PS1="\u\[\e[34m\]@\[\e[m\]\W\[\e[\]\`parse_git_branch\`\[\e[m\]\\$ "
