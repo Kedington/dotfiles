@@ -8,10 +8,10 @@ function parse_git_branch() {
 		if [ ! "${STAT}" == "" ]
 		then
 			red=$(tput setaf 124);
-			echo "${red}[${BRANCH}${STAT}]"
+			echo -e "\001${red}\002[${BRANCH}${STAT}]"
 		else
 			green=$(tput setaf 64);
-			echo "${green}[${BRANCH}${STAT}]"
+			echo -e "\001${green}\002[${BRANCH}${STAT}]"
 		fi
 	else
 		echo ""
@@ -54,12 +54,12 @@ function parse_git_dirty {
 }
 
 # Colors 
-blue="\e[34m";
-reset="\e[0m";
+blue=$(tput setaf 33);
+reset=$(tput sgr0);
 
 PS1="\u";
 PS1+="\[${blue}\]@\[${reset}\]";
 PS1+="\W";
-PS1+="\$(parse_git_branch)\[${reset}\]"; 
+PS1+="\$(parse_git_branch)\[${reset}\]";
 PS1+="\$ ";
 export PS1;
