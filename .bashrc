@@ -7,9 +7,11 @@ function parse_git_branch() {
 		STAT=`parse_git_dirty`
 		if [ ! "${STAT}" == "" ]
 		then
-			echo "31m[${BRANCH}${STAT}]"
+			red=$(tput setaf 124);
+			echo "${red}[${BRANCH}${STAT}]"
 		else
-			echo "32m[${BRANCH}${STAT}]"
+			green=$(tput setaf 64);
+			echo "${green}[${BRANCH}${STAT}]"
 		fi
 	else
 		echo ""
@@ -51,4 +53,13 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\u\[\e[34m\]@\[\e[m\]\W\[\e[\]\`parse_git_branch\`\[\e[m\]\\$ "
+# Colors 
+blue="\e[34m";
+reset="\e[0m";
+
+PS1="\u";
+PS1+="\[${blue}\]@\[${reset}\]";
+PS1+="\W";
+PS1+="\$(parse_git_branch)\[${reset}\]"; 
+PS1+="\$ ";
+export PS1;
