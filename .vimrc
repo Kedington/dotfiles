@@ -6,6 +6,7 @@ syntax on	  "Syntax highlighting is nice"
 set cursorline    "Highlight current line"
 set hlsearch      "Highlight search term"
 set tabstop=4	  "Make tabs 4 spaces"
+set expandtab     "Soft tabs for python"
 
 "Set Fancy color scheme" 
 syntax enable
